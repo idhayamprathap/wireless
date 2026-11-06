@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #050811;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 100% 100%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    color: #e2e8f0;
+  }
+
+  /* Custom tech scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0f1d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c2d52;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00f2fe;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(14, 22, 41, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(28, 45, 82, 0.7);
+  }
+
+  .glass-card-hover {
+    transition: all 0.25s ease-in-out;
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 20px -3px rgba(6, 182, 212, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(0, 242, 254, 0.4);
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+  }
+
+  .neon-border-orange {
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.2);
+  }
+
+  .neon-text-cyan {
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+  }
+
+  .neon-text-orange {
+    color: #f97316;
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+  }
+}
+
+/* Radar pulse animation */
+@keyframes radarPing {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.radar-ping {
+  animation: radarPing 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes signalFlow {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-signal-flow {
+  stroke-dasharray: 8 6;
+  animation: signalFlow 1.5s linear infinite;
+}
